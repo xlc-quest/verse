@@ -8,6 +8,8 @@ import Form from 'react-bootstrap/Form';
 import { Card, Image, Col, Container, ListGroup, Modal, Nav, NavDropdown, Navbar, Offcanvas, Row, Spinner, Tab, Tabs, NavbarBrand, NavbarText, Toast, ToastContainer, DropdownButton, Dropdown, InputGroup, Badge, TabContent } from 'react-bootstrap';
 import { relative } from 'path';
 
+import * as Icon from 'react-bootstrap-icons';
+
 function MyVerticallyCenteredModal(props: any) {
   return (
     <Modal
@@ -98,44 +100,52 @@ function App() {
   return (
     <div className="App" style={{fontSize:"90%"}}>
       <Tab.Container id="left-tabs-example" defaultActiveKey="messages">
-        <Nav className="fixed-top bg-body-tertiary" style={{opacity:.95}}>
-          <div className="fixed-top text-start ps-2 p-1" style={{fontSize:"85%"}}>
-            <small><span className="text-secondary">Welcome to VERSE...</span></small>
-          </div>
-          <Nav variant="tabs" className='mt-auto me-auto' defaultActiveKey="messages">
-            <Nav.Item>
-              <Nav.Link eventKey="messages">messages</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="market">market</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="activities">activities</Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <Nav style={{ width: "200px"}}>
+        <div className="fixed-top bg-body-tertiary" style={{opacity:.95}}>
+          <div>
             <Image
                 src="./verse-logo.png"
                 width="64px"
                 height="64px"
-                className="d-inline-block m-1"
-                alt="Verse logo"
-              />
-            <p><small>123,232.00</small></p>
+                className="d-block m-1"
+                alt="Verse logo" />
+          </div>
+          <div className="" style={{fontSize:"90%"}}>
+            <div className="fixed-top p-1" style={{fontSize:"85%"}}>
+              <small className="d-block"><span className="text-secondary">Connecting.. to the server..</span></small>
+            </div>
+            <div className="fixed-top p-1 px-2 text-end">
+              <small className="d-block"><span className="text-primary">rate 1.84%/d</span></small>
+              <small className="d-block"><span className="text-info">x$123,232.03</span></small>
+            </div>
+          </div>
+          <Nav variant="tabs" className='mt-auto' defaultActiveKey="messages" style={{fontSize:"80%"}}>
+            <Nav.Item>
+              <Nav.Link eventKey="messages" className="p-1 px-2">messages</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="market" className="p-1 px-2">market</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="me-auto">
+              <Nav.Link eventKey="activities" className="p-1 px-2">activities</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="">
+              <a href="#" onClick={handleShow}><span className="text-light">@versedev</span></a>
+              <span style={{fontSize:"140%"}}>🧙‍♂️</span>
+            </Nav.Item>
           </Nav>
-        </Nav>
-        <Tab.Content className="justify-content-start text-start p-2" style={{marginTop:"70px", marginBottom:"30px"}}>
+        </div>
+        <Tab.Content className="justify-content-start text-start p-2" style={{marginTop:"100px", marginBottom:"30px"}}>
           <Tab.Pane eventKey="messages">
             <ListGroup className="" style={{fontSize:"90%"}}>
             {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
-              <ListGroup.Item className="m-0 p-0 border-0">
+              <ListGroup.Item className="m-0 p-0 border-0 mb-1">
                 <div className="d-flex">
                   <div>
                     <span className="text-info">@verse : </span>
                     <span className="me-auto">welcome to the welcome to the verse..welcome to the verse..welcome to the verse..welcome to the verse..</span>
                   </div>
                   <div className="text-end ps-2" style={{minWidth:"80px"}}>
-                    <small className="text-secondary d-block">11/12/2023 21:49Z #VERSE 127.0.0.1 KR</small>
+                    <small className="text-secondary d-block">11/12/2023 21:49Z</small>
                   </div>
                 </div>
               </ListGroup.Item>
@@ -144,13 +154,13 @@ function App() {
           </Tab.Pane>
           <Tab.Pane eventKey="market">
           {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
-            <Card className="m-1" border="success" style={{ width: '14rem', display:"inline-block" }}>
+            <Card className="m-1 d-inline-flex" border="success" style={{}}>
               <Card.Img variant="top" src="./verse-thumb.png" />
               <Card.Body className="text-end">
                 <Card.Subtitle><small className="text-muted">@username</small></Card.Subtitle>
-                <Card.Title>Verse Pass - 1 Day</Card.Title>
+                <Card.Title><small>Verse Pass - 1 Day</small></Card.Title>
                 <Card.Text>
-                  Required to enter the #verse, lasts for 24 hr
+                  <small>Required to enter the #verse, lasts for 24 hr</small>
                 </Card.Text>
                 <Button onClick={() => setModalShow(true)} variant="primary" className="btn-sm">v$10.00 Buy</Button>
               </Card.Body>
@@ -168,7 +178,7 @@ function App() {
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
-        
+
       <Navbar className="bg-body-tertiary m-0 p-0" fixed="bottom" style={{opacity:.95}}>
         <Container fluid>
           <Nav className="justify-content-start flex-grow-1">
@@ -199,13 +209,50 @@ function App() {
         </Container>
       </Navbar>
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>
+            <span className="text-secondary me-auto">profile of</span>
+            <small className=""> @versedev</small><span style={{fontSize:"200%"}}>🧙‍♂️</span>
+          </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+        <Offcanvas.Body style={{fontSize:"90%"}}>
+          <div className='text-end'><span className="text-primary">rate 1.84%/d</span></div>
+          <h2 className="text-end">x$165,239.47</h2>
+          <h6 className="text-end text-secondary"><small>est. total ~x$323,211.95</small></h6>
+          <div className='mb-2 text-end'>
+            <Icon.Instagram className='m-1'></Icon.Instagram>
+            <Icon.Tiktok className='m-1'></Icon.Tiktok>
+            <Icon.Linkedin className='m-1'></Icon.Linkedin>
+            <Icon.Facebook className='m-1'></Icon.Facebook>
+            <Icon.Whatsapp className='m-1'></Icon.Whatsapp>
+            <Icon.Telegram className='m-1'></Icon.Telegram>
+            <Icon.Line className='m-1'></Icon.Line>
+            <Icon.Discord className='m-1'></Icon.Discord>
+            <Icon.Twitter className='m-1'></Icon.Twitter>
+            <Icon.Twitch className='m-1'></Icon.Twitch>
+            <Icon.Behance className='m-1'></Icon.Behance>
+            <Icon.Reddit className='m-1'></Icon.Reddit>
+            <Icon.Snapchat className='m-1'></Icon.Snapchat>
+            <Icon.Wechat className='m-1'></Icon.Wechat>
+            <Icon.EnvelopeAt className='m-1'></Icon.EnvelopeAt>
+          </div>
+          <p>This is where you can check your balance, set public bio, see inventories, contacts and set some preference settings.</p>
+          <Tabs
+            defaultActiveKey="inventory"
+            id="uncontrolled-tab-example"
+            className="mb-2"
+          >
+            <Tab eventKey="inventory" title="inventory">
+              Inventory
+            </Tab>
+            <Tab eventKey="contacts" title="contacts">
+              contacts
+            </Tab>
+            <Tab eventKey="settings" title="settings">
+              Settings
+            </Tab>
+        </Tabs>
         </Offcanvas.Body>
       </Offcanvas>
 
