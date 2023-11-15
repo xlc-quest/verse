@@ -162,14 +162,14 @@ function App() {
               </Row>
               <Row className="mb-1">
                 <Col className="" xs></Col>
-                <Col className="p-0" xs={3} md={2} xl={1}>
+                <Col className="pe-0" xs={3} md={2} xxl={1}>
                   <Form.Select className="text-end" size="sm" style={{fontSize:"70%", height:"1.8rem"}}>
                     <option>All items</option>
                     <option>Zone Pass</option>
                     <option>Collectible</option>
                   </Form.Select>
                 </Col>
-                <Col className="p-0" xs={4} md={2} xl={1}>
+                <Col className="ps-0" xs={4} md={2} xxl={1}>
                   <Form.Select className="text-end" size="sm" style={{fontSize:"70%", height:"1.8rem"}}>
                     <option>Sort by date</option>
                     <option>Sort by low price</option>
