@@ -5,7 +5,7 @@ import './App.css';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Card, Image, Col, Container, ListGroup, Modal, Nav, NavDropdown, Navbar, Offcanvas, Row, Spinner, Tab, Tabs, NavbarBrand, NavbarText, Toast, ToastContainer, DropdownButton, Dropdown, InputGroup, Badge, TabContent } from 'react-bootstrap';
+import { Card, Image, Col, Container, ListGroup, Modal, Nav, NavDropdown, Navbar, Offcanvas, Row, Spinner, Tab, Tabs, NavbarBrand, NavbarText, Toast, ToastContainer, DropdownButton, Dropdown, InputGroup, Badge, TabContent, FloatingLabel } from 'react-bootstrap';
 import { relative } from 'path';
 
 import * as Icon from 'react-bootstrap-icons';
@@ -110,117 +110,148 @@ function App() {
                 alt="Verse logo" />
           </div>
           <div className="" style={{fontSize:"90%"}}>
-            <div className="fixed-top p-1" style={{fontSize:"85%"}}>
+            <div className="fixed-top p-1" style={{fontSize:"80%"}}>
               <small className="d-block"><span className="text-secondary">Connecting.. to the server..</span></small>
             </div>
             <div className="fixed-top p-1 px-2 text-end">
-              <small className="d-block"><span className="text-primary">rate 1.84%/d</span></small>
-              <small className="d-block"><span className="text-info">x$123,232.03</span></small>
+              <div className='text-end' style={{fontSize:"80%"}}><small className="text-primary">rate 1.84%/d</small></div>
+              <h2 style={{fontSize:"180%"}} className="mb-0 text-end">x$165,239.47</h2>
+              <small style={{fontSize:"80%"}} className="text-end text-secondary">est. total ~x$323,211.95</small>
             </div>
           </div>
-          <Nav variant="tabs" className='mt-auto' defaultActiveKey="messages" style={{fontSize:"80%"}}>
+          <Nav variant="tabs" className='mt-auto' defaultActiveKey="messages">
             <Nav.Item>
-              <Nav.Link eventKey="messages" className="p-1 px-2">messages</Nav.Link>
+              <Nav.Link eventKey="messages" className="p-1 px-2"><Icon.ChatFill className="me-1" /><span style={{fontSize:"70%"}}>messages</span></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="market" className="p-1 px-2">market</Nav.Link>
+              <Nav.Link eventKey="market" className="p-1 px-2"><Icon.CurrencyExchange className="me-1" /><span style={{fontSize:"70%"}}>trade</span></Nav.Link>
             </Nav.Item>
             <Nav.Item className="me-auto">
-              <Nav.Link eventKey="activities" className="p-1 px-2">activities</Nav.Link>
+              <Nav.Link eventKey="activities" className="p-1 px-2"><Icon.Activity className="me-1" /><span style={{fontSize:"70%"}}>activities</span></Nav.Link>
             </Nav.Item>
-            <Nav.Item className="">
+            <Nav.Item className="px-2">
               <a href="#" onClick={handleShow}><span className="text-light">@versedev</span></a>
               <span style={{fontSize:"140%"}}>🧙‍♂️</span>
             </Nav.Item>
           </Nav>
         </div>
-        <Tab.Content className="justify-content-start text-start p-2" style={{marginTop:"100px", marginBottom:"30px"}}>
+        <Tab.Content className="justify-content-start text-start" style={{marginTop:"110px", marginBottom:"40px"}}>
           <Tab.Pane eventKey="messages">
-            <ListGroup className="" style={{fontSize:"90%"}}>
-            {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
-              <ListGroup.Item className="m-0 p-0 border-0 mb-1">
-                <div className="d-flex">
-                  <div>
-                    <span className="text-info">@verse : </span>
-                    <span className="me-auto">welcome to the welcome to the verse..welcome to the verse..welcome to the verse..welcome to the verse..</span>
+            <Container fluid>
+              <ListGroup className="" style={{fontSize:"85%"}}>
+                <ListGroup.Item className="m-0 p-0 border-0 mb-1">
+                  <div className="d-flex" style={{maxWidth:"640px"}}>
+                    <div className="me-auto" style={{fontSize:"80%"}}>
+                      <span className="">@verse</span>
+                      <span className="text-secondary"> →</span>
+                      <span className=""> #verse at</span>
+                      <span className="text-secondary"> 11/12/2023 21:49Z</span>
+                    </div>
                   </div>
-                  <div className="text-end ps-2" style={{minWidth:"80px"}}>
-                    <small className="text-secondary d-block">11/12/2023 21:49Z</small>
-                  </div>
-                </div>
-              </ListGroup.Item>
-            ))}
-            </ListGroup>
+                  <p>
+                    Welcome to the verse..welcome to the verse..welcome to the verse..
+                  </p>
+                </ListGroup.Item>
+              </ListGroup>
+            </Container>
           </Tab.Pane>
           <Tab.Pane eventKey="market">
-          {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
-            <Card className="m-1 d-inline-flex" border="success" style={{}}>
-              <Card.Img variant="top" src="./verse-thumb.png" />
-              <Card.Body className="text-end">
-                <Card.Subtitle><small className="text-muted">@username</small></Card.Subtitle>
-                <Card.Title><small>Verse Pass - 1 Day</small></Card.Title>
-                <Card.Text>
-                  <small>Required to enter the #verse, lasts for 24 hr</small>
-                </Card.Text>
-                <Button onClick={() => setModalShow(true)} variant="primary" className="btn-sm">v$10.00 Buy</Button>
-              </Card.Body>
-            </Card>
-          ))}
+            <Container className="text-end" fluid>
+              <Row className="mb-2">
+                <Col className="text-secondary" style={{fontSize:"65%"}}>List your item <span className="text-light">for sale</span> ↑</Col>
+              </Row>
+              <Row className="mb-1">
+                <Col className="" xs></Col>
+                <Col className="p-0" xs={3} md={2} xl={1}>
+                  <Form.Select className="text-end" size="sm" style={{fontSize:"70%", height:"1.8rem"}}>
+                    <option>All items</option>
+                    <option>Zone Pass</option>
+                    <option>Collectible</option>
+                  </Form.Select>
+                </Col>
+                <Col className="p-0" xs={4} md={2} xl={1}>
+                  <Form.Select className="text-end" size="sm" style={{fontSize:"70%", height:"1.8rem"}}>
+                    <option>Sort by date</option>
+                    <option>Sort by low price</option>
+                    <option>Sort by high price</option>
+                  </Form.Select>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="">
+                {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
+                  <Card className="position-relative ms-1 mb-1 d-inline-flex" style={{fontSize:"80%"}}>
+                    <Card.Img variant="top" src="./verse-thumb.png" style={{maxWidth:"170px"}} />
+                    <Card.Body className="text-end m-0 p-2" style={{maxWidth:"170px"}}>
+                      <Card.Subtitle style={{fontSize:"90%"}}><small className="text-secondary">@verse</small></Card.Subtitle>
+                      <Card.Title style={{fontSize:"90%"}} className="m-0 p-0">Verse Pass - 1 Day</Card.Title>
+                      <Card.Text className="m-0 p-0">
+                        <small>Required to enter the #verse, lasts for 24 hr</small>
+                      </Card.Text>
+                    </Card.Body>
+                    <Button onClick={() => setModalShow(true)} variant="primary" className="btn-sm m-1 position-absolute top-0 end-0" style={{fontSize:"80%", opacity:.9}}>v$10.00 Buy</Button>
+                  </Card>
+                ))}
+                </Col>
+              </Row>
+            </Container>
           </Tab.Pane>
           <Tab.Pane eventKey="activities">
-          <ListGroup>
-            <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
-            <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
-            <ListGroup.Item className="border-0">Some activity ...s</ListGroup.Item>
-            <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
-            <ListGroup.Item className="border-0">Some activity ... at eros</ListGroup.Item>
-          </ListGroup>
+            <Container fluid>
+              <ListGroup>
+                <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
+                <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
+                <ListGroup.Item className="border-0">Some activity ...s</ListGroup.Item>
+                <ListGroup.Item className="border-0">Some activity ...</ListGroup.Item>
+                <ListGroup.Item className="border-0">Some activity ... at eros</ListGroup.Item>
+              </ListGroup>
+            </Container>
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
 
-      <Navbar className="bg-body-tertiary m-0 p-0" fixed="bottom" style={{opacity:.95}}>
+      <Navbar className="bg-body-tertiary m-0 p-1" fixed="bottom" style={{opacity:.95}}>
         <Container fluid>
-          <Nav className="justify-content-start flex-grow-1">
-            <NavDropdown drop={"up"} title="#VERSE-DEV" id="basic-nav-dropdown">
+          <Nav className="justify-content-start flex-grow-1" style={{fontSize:"80%"}}>
+            <NavDropdown drop={"up"} title="#VERSE-DEV" id="basic-nav-dropdown" style={{fontSize:"80%"}}>
               <NavDropdown.Header><small>Accessible zones</small></NavDropdown.Header>
-              <NavDropdown.Item href="#action/3.1"><small>#Verse<Badge bg="dark" text="success" className='m-1'>expires in 23:32:32s</Badge></small></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2"><small>#Verse-dev</small><Badge bg="dark" text="info" className='m-1'>Free</Badge></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3"><small>#Market<Badge bg="dark" text="info" className='m-1'>Free</Badge></small></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1" style={{fontSize:"80%"}}><small>#Verse<Badge bg="dark" text="success" className='m-1'>expires in 23:32:32s</Badge></small></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" style={{fontSize:"80%"}}><small>#Verse-dev</small><Badge bg="dark" text="info" className='m-1'>Free</Badge></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3" style={{fontSize:"80%"}}><small>#Market<Badge bg="dark" text="info" className='m-1'>Free</Badge></small></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item href="#action/3.4" style={{fontSize:"80%"}}>
                 <small>#Discover<Badge bg="primary" className='m-1'>23</Badge></small>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Navbar.Collapse id="navbarScroll">
-
             <InputGroup className="">
               <Form.Control
                 type="text"
-                placeholder="message"
+                placeholder="Input for messages and filtering"
                 className="me-1"
-                aria-label="message"
+                aria-label="input"
                 size='sm'
+                style={{fontSize:"80%"}}
               />
-              <Button size='sm' onClick={() => setModalShow(true)} variant="outline-success">Send</Button>
+              <Button size='sm' onClick={() => setModalShow(true)} variant="outline-success">Enter</Button>
             </InputGroup>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      <Offcanvas show={show} onHide={handleClose} placement='end'>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>
+      <Offcanvas show={show} onHide={handleClose} placement='end' style={{fontSize:"80%"}}>
+        <Offcanvas.Header className="p-2"  closeButton>
+          <Offcanvas.Title style={{fontSize:"120%"}}>
             <span className="text-secondary me-auto">profile of</span>
-            <small className=""> @versedev</small><span style={{fontSize:"200%"}}>🧙‍♂️</span>
+            <span className=""> @versedev</span><span style={{fontSize:"120%"}}>🧙‍♂️</span>
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{fontSize:"90%"}}>
-          <div className='text-end'><span className="text-primary">rate 1.84%/d</span></div>
-          <h2 className="text-end">x$165,239.47</h2>
-          <h6 className="text-end text-secondary"><small>est. total ~x$323,211.95</small></h6>
-          <div className='mb-2 text-end'>
+        <Offcanvas.Body className="py-0 px-2" style={{fontSize:"90%"}}>
+          <div className='text-end'><small className="text-primary">rate 1.84%/d</small></div>
+          <h2 style={{fontSize:"200%"}} className="mb-0 text-end">x$165,239.47</h2>
+          <h6 style={{fontSize:"140%"}} className="text-end text-secondary"><small>est. total ~x$323,211.95</small></h6>
+          <div className='mb-2 text-end' style={{fontSize:"120%"}}>
+            <Icon.Globe className='m-1'></Icon.Globe>
             <Icon.Instagram className='m-1'></Icon.Instagram>
             <Icon.Tiktok className='m-1'></Icon.Tiktok>
             <Icon.Linkedin className='m-1'></Icon.Linkedin>
@@ -237,14 +268,32 @@ function App() {
             <Icon.Wechat className='m-1'></Icon.Wechat>
             <Icon.EnvelopeAt className='m-1'></Icon.EnvelopeAt>
           </div>
-          <p>This is where you can check your balance, set public bio, see inventories, contacts and set some preference settings.</p>
+          <p>This is where you can check your balance, set public bio, see items, contacts and set some preference settings.</p>
           <Tabs
             defaultActiveKey="inventory"
             id="uncontrolled-tab-example"
             className="mb-2"
           >
             <Tab eventKey="inventory" title="inventory">
-              Inventory
+              <Container>
+                <Row>
+                  <Col className="p-0">
+                  {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((key) => (
+                    <Card className="position-relative ms-1 mb-1 d-inline-flex" style={{fontSize:"80%"}}>
+                      <Card.Img variant="top" src="./verse-thumb.png" style={{maxWidth:"170px"}} />
+                      <Card.Body className="text-end m-0 p-2" style={{maxWidth:"170px"}}>
+                        <Card.Subtitle style={{fontSize:"90%"}}><small className="text-secondary">@verse</small></Card.Subtitle>
+                        <Card.Title style={{fontSize:"90%"}} className="m-0 p-0">Verse Pass - 1 Day</Card.Title>
+                        <Card.Text className="m-0 p-0">
+                          <small>Required to enter the #verse, lasts for 24 hr</small>
+                        </Card.Text>
+                      </Card.Body>
+                      <Button onClick={() => setModalShow(true)} variant="warning" className="btn-sm m-1 position-absolute top-0 end-0" style={{fontSize:"80%", opacity:.9}}>Sell</Button>
+                    </Card>
+                  ))}
+                  </Col>
+                </Row>
+              </Container>
             </Tab>
             <Tab eventKey="contacts" title="contacts">
               contacts
